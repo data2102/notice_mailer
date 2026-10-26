@@ -1,0 +1,269 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+<meta charset="UTF-8">
+</head>
+<body style="margin:0; padding:0; background-color:#f4f4f4; font-family:'Malgun Gothic', Arial, sans-serif;">
+  <!-- 치환값: FIELD_01 = 회원사코드 / FIELD_02 = 이용서비스(방식) -->
+  <table width="100%" cellpadding="0" cellspacing="0" style="background-color:#f4f4f4; padding:30px 0;">
+    <tr>
+      <td align="center">
+        <table width="640" cellpadding="0" cellspacing="0" style="background-color:#ffffff; border-radius:8px; overflow:hidden;">
+
+          <!-- 상단 로고 영역 (자사 로고/색상으로 교체) -->
+          <tr>
+            <td style="padding:24px 30px 0 30px;">
+              <span style="color:#e84118; font-size:22px; font-weight:bold; letter-spacing:1px;">KCB</span>
+            </td>
+          </tr>
+
+          <!-- 제목 -->
+          <tr>
+            <td style="padding:16px 30px 20px 30px;">
+              <span style="color:#1a4fd6; font-size:22px; font-weight:bold;">PHP 인증모듈 보안 취약점에 따른 API 방식 전환 요청 안내</span>
+            </td>
+          </tr>
+
+          <!-- 인사말 -->
+          <tr>
+            <td style="padding:0 30px 24px 30px; border-bottom:2px solid #1a4fd6;">
+              <p style="font-size:15px; color:#333333; line-height:1.7; margin:0;">
+                안녕하세요. 코리아크레딧뷰로(KCB) 입니다.<br>
+                KCB 본인확인서비스를 이용해 주셔서 감사합니다.
+                <br><br>
+                최근 PHP에서 인증 없이 원격으로 서버를 장악할 수 있는 치명적 보안 취약점(CVE-2026-109618, CVE-2026-109619)이 공개되어, 한국인터넷진흥원(KISA)과 해외 보안기관에서 보안 업데이트를 권고하고 있습니다. 이 취약점은 PHP 8.2.35·8.3.36·8.4.27·8.5.12 이상 버전에서 해결되었으나, PHP 8.1 이하 버전은 보안 지원이 종료되어 패치가 제공되지 않습니다.
+                <br><br>
+                취약한 서버가 공격을 받으면 연동 방식과 관계없이 귀사 서버에서 처리되는 이용자 개인정보(성명, 생년월일, 휴대폰번호 등)가 유출될 수 있습니다. 귀사가 사용 중인 KCB PHP 인증모듈은 PHP 8.1 이하에서만 동작하므로, 먼저 API 방식으로 전환하신 뒤 PHP를 보안 지원 버전으로 업그레이드해 주실 것을 요청드립니다.
+              </p>
+            </td>
+          </tr>
+
+          <!-- 귀사 이용 현황 -->
+          <tr>
+            <td style="padding:24px 30px 0 30px;">
+              <table cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="width:6px; background-color:#1a4fd6;">&nbsp;</td>
+                  <td style="padding-left:10px;">
+                    <span style="font-size:16px; font-weight:bold; color:#222222;">귀사 이용 현황 (KCB 확인 기준)</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 30px 0 30px;">
+              <table width="100%" cellpadding="10" cellspacing="0" style="border-collapse:collapse; font-size:13px; color:#333333;">
+                <tr>
+                  <td style="width:110px; border:1px solid #e0e0e0; background-color:#eef1f6; font-weight:bold; text-align:center;">회원사코드</td>
+                  <td style="border:1px solid #e0e0e0; font-weight:bold;">$_FIELD_01$</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #e0e0e0; background-color:#eef1f6; font-weight:bold; text-align:center;">이용 서비스</td>
+                  <td style="border:1px solid #e0e0e0; font-weight:bold;">$_FIELD_02$</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #e0e0e0; background-color:#eef1f6; font-weight:bold; text-align:center;">사용 중인 모듈</td>
+                  <td style="border:1px solid #e0e0e0; font-weight:bold;">PHP</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 왜 API 방식인가요 -->
+          <tr>
+            <td style="padding:28px 30px 0 30px;">
+              <table cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="width:6px; background-color:#1a4fd6;">&nbsp;</td>
+                  <td style="padding-left:10px;">
+                    <span style="font-size:16px; font-weight:bold; color:#222222;">왜 API 방식인가요</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 30px 0 30px;">
+              <ul style="font-size:13px; color:#444444; line-height:1.8; margin:0; padding-left:18px;">
+                <li>KCB PHP 모듈은 PHP 8.1 이하에서만 동작하므로, API로 전환해야 PHP를 보안 지원 버전으로 업그레이드할 수 있습니다. API 전환 전에 PHP를 8.2 이상으로 업그레이드하면 본인확인서비스가 중단되니 반드시 API 전환을 먼저 진행해 주세요.</li>
+                <li>API는 서버에 모듈을 설치하지 않고 표준 HTTPS(TLS 1.2 이상)로 연동하므로, 개발언어·버전에 따른 모듈 호환 문제와 향후 모듈 교체 부담이 없습니다.</li>
+                <li>다른 언어의 모듈로 바꾸는 방식은 언어 환경에서 또 취약점이 발견될 경우 동일한 교체가 다시 필요하여, KCB는 API 방식을 권장드립니다. API로 전환하셔도 계약 및 이용요금 변경은 없습니다.</li>
+              </ul>
+            </td>
+          </tr>
+
+          <!-- 요청사항 -->
+          <tr>
+            <td style="padding:28px 30px 0 30px;">
+              <table cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="width:6px; background-color:#1a4fd6;">&nbsp;</td>
+                  <td style="padding-left:10px;">
+                    <span style="font-size:16px; font-weight:bold; color:#222222;">요청사항</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 30px 0 30px;">
+              <table width="100%" cellpadding="10" cellspacing="0" style="border-collapse:collapse; font-size:13px; color:#333333; line-height:1.6;">
+                <tr>
+                  <td style="width:110px; border:1px solid #e0e0e0; background-color:#eef1f6; font-weight:bold; text-align:center;">NAT IP 회신</td>
+                  <td style="border:1px solid #e0e0e0;">NAT IP를 [운영 공용 메일]로 회신: 메일 제목을 <b>[PHP전환회신][$_FIELD_01$]</b>로 해 주시면 빠르게 처리됩니다.</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #e0e0e0; background-color:#eef1f6; font-weight:bold; text-align:center;">API 방식<br>전환 완료</td>
+                  <td style="border:1px solid #e0e0e0;">KCB가 전달하는 클라이언트 정보와 규격서 등 자료를 참고하여 전환 부탁드립니다.</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #e0e0e0; background-color:#eef1f6; font-weight:bold; text-align:center;">PHP<br>보안 업데이트</td>
+                  <td style="border:1px solid #e0e0e0;">
+                    API 전환 후 PHP를 보안 지원 버전(8.2.35·8.3.36·8.4.27·8.5.12 이상)으로 업그레이드 부탁드립니다.<br>
+                    귀사 서버의 보안 업데이트는 귀사에서 적용해 주셔야 하는 점 참고부탁드립니다.<br>
+                    <span style="color:#e84118; font-weight:bold;">※ 미리 API 전환 안내를 받으신 회원사도 API 전환 후, PHP 업그레이드까지 진행해주시기 바랍니다.</span>
+                  </td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #e0e0e0; background-color:#eef1f6; font-weight:bold; text-align:center;">임시 보호조치</td>
+                  <td style="border:1px solid #e0e0e0;">전환 완료 전까지는 불필요한 인터넷 노출 최소화, 접근 제한 등 가능한 보호조치를 적용해 주시기 바랍니다.</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 전환 절차 -->
+          <tr>
+            <td style="padding:28px 30px 0 30px;">
+              <table cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="width:6px; background-color:#1a4fd6;">&nbsp;</td>
+                  <td style="padding-left:10px;">
+                    <span style="font-size:16px; font-weight:bold; color:#222222;">전환 절차</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 30px 0 30px;">
+              <table width="100%" cellpadding="8" cellspacing="0" style="border-collapse:collapse; font-size:13px; color:#333333; line-height:1.6;">
+                <tr>
+                  <td style="width:30px; border:1px solid #e0e0e0; background-color:#eef1f6; color:#1a4fd6; font-weight:bold; text-align:center;">①</td>
+                  <td style="border:1px solid #e0e0e0;">NAT IP 회신</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #e0e0e0; background-color:#eef1f6; color:#1a4fd6; font-weight:bold; text-align:center;">②</td>
+                  <td style="border:1px solid #e0e0e0;">KCB에서 IP 등록 후 클라이언트 정보(client_id, client_secret) 발급 — 회신 후 1~2영업일 내 전달 예정</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #e0e0e0; background-color:#eef1f6; color:#1a4fd6; font-weight:bold; text-align:center;">③</td>
+                  <td style="border:1px solid #e0e0e0;">API 개발 및 연동 확인</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #e0e0e0; background-color:#eef1f6; color:#1a4fd6; font-weight:bold; text-align:center;">④</td>
+                  <td style="border:1px solid #e0e0e0;">운영계 전환</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #e0e0e0; background-color:#eef1f6; color:#1a4fd6; font-weight:bold; text-align:center;">⑤</td>
+                  <td style="border:1px solid #e0e0e0;">기존 PHP 모듈 삭제</td>
+                </tr>
+                <tr>
+                  <td style="border:1px solid #e0e0e0; background-color:#eef1f6; color:#1a4fd6; font-weight:bold; text-align:center;">⑥</td>
+                  <td style="border:1px solid #e0e0e0;">PHP 보안 지원 버전으로 업그레이드</td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+
+          <!-- 첨부 -->
+          <tr>
+            <td style="padding:28px 30px 0 30px;">
+              <table cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="width:6px; background-color:#1a4fd6;">&nbsp;</td>
+                  <td style="padding-left:10px;">
+                    <span style="font-size:16px; font-weight:bold; color:#222222;">첨부</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 30px 0 30px;">
+              <ul style="font-size:13px; color:#444444; line-height:1.8; margin:0; padding-left:18px;">
+                <li>KCB본인확인(ok-name) 공통 API 규격서 v2.2</li>
+                <li>$_FIELD_02$ 서비스 API 규격서</li>
+              </ul>
+            </td>
+          </tr>
+
+          <!-- API 전환 관련 FAQ 페이지 -->
+          <tr>
+            <td style="padding:28px 30px 0 30px;">
+              <table cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="width:6px; background-color:#1a4fd6;">&nbsp;</td>
+                  <td style="padding-left:10px;">
+                    <span style="font-size:16px; font-weight:bold; color:#222222;">API 전환 관련 FAQ 페이지</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 30px 0 30px;">
+              <p style="font-size:13px; color:#444444; line-height:1.8; margin:0;">
+                - <a href="https://www.ok-name.co.kr/notice/php-vulnerability-guide.html" style="color:#1a4fd6;">https://www.ok-name.co.kr/notice/php-vulnerability-guide.html</a>
+              </p>
+            </td>
+          </tr>
+
+          <!-- 문의 -->
+          <tr>
+            <td style="padding:28px 30px 0 30px;">
+              <table cellpadding="0" cellspacing="0">
+                <tr>
+                  <td style="width:6px; background-color:#1a4fd6;">&nbsp;</td>
+                  <td style="padding-left:10px;">
+                    <span style="font-size:16px; font-weight:bold; color:#222222;">문의</span>
+                  </td>
+                </tr>
+              </table>
+            </td>
+          </tr>
+          <tr>
+            <td style="padding:12px 30px 0 30px;">
+              <p style="font-size:13px; color:#444444; line-height:1.8; margin:0;">
+                - 회신·일반 문의: <a href="mailto:sales_okname@koreacb.com" style="color:#1a4fd6;">sales_okname@koreacb.com</a><br>
+                - 개발(기술) 문의: <a href="mailto:dev_okname@koreacb.com" style="color:#1a4fd6;">dev_okname@koreacb.com</a>
+              </p>
+            </td>
+          </tr>
+
+          <!-- 맺음말 -->
+          <tr>
+            <td style="padding:28px 30px 24px 30px;">
+              <p style="font-size:14px; color:#333333; line-height:1.7; margin:0;">
+                귀사 고객의 안전한 서비스 이용을 위한 조치이오니 양해와 협조 부탁드립니다. 감사합니다.
+              </p>
+            </td>
+          </tr>
+
+          <!-- 푸터 -->
+          <tr>
+            <td style="background-color:#f8f9fb; padding:20px 30px; text-align:center;">
+              <span style="color:#999999; font-size:18px; font-weight:bold; letter-spacing:1px;">KCB</span>
+              <p style="font-size:12px; color:#999999; line-height:1.6; margin:12px 0 0;">
+                Copyright &copy; Korea Credit Bureau. All Rights Reserved.
+              </p>
+            </td>
+          </tr>
+
+        </table>
+      </td>
+    </tr>
+  </table>
+</body>
+</html>
